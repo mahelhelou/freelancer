@@ -70,6 +70,19 @@ function freelancer_post_types() {
       ),
       'menu_icon' => 'dashicons-text-page'
   ));
+
+  // Social Media Post Type
+  register_post_type('contact-info', array(
+     'supports' => array('title'),
+      'public' => true,
+      'labels' => array(
+         'name' => 'Contact Info',
+         'add_new_item' => 'Add Contact Info',
+         'edit_item' => 'Edit Contact Info',
+         'singular_name' => 'Contact Info'
+      ),
+      'menu_icon' => 'dashicons-twitter'
+  ));
 }
 
 add_action('init', 'freelancer_post_types');

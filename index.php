@@ -297,37 +297,51 @@
     <div class="container">
       <div class="row">
 
+      <?php
+        $args = array(
+          'post_type' => 'contact-info',
+          'posts_per_page' => 1
+        );
+
+        $contactInfo = new WP_Query($args);
+
+        while ($contactInfo->have_posts()) {
+          $contactInfo->the_post(); ?>
+
         <!-- Footer Location -->
         <div class="col-lg-4 mb-5 mb-lg-0">
           <h4 class="text-uppercase mb-4">Location</h4>
-          <p class="lead mb-0">2215 John Daniel Drive
-            <br>Clark, MO 65243</p>
+          <p class="lead mb-0"><?php the_field('town'); ?>
+            <br><?php the_field('building'); ?></p>
         </div>
 
         <!-- Footer Social Icons -->
         <div class="col-lg-4 mb-5 mb-lg-0">
           <h4 class="text-uppercase mb-4">Around the Web</h4>
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
+          <a target="_blank" class="btn btn-outline-light btn-social mx-1" href="<?php the_field('facebook'); ?>">
             <i class="fab fa-fw fa-facebook-f"></i>
           </a>
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
+          <a target="_blank" class="btn btn-outline-light btn-social mx-1" href="<?php the_field('twitter'); ?>">
             <i class="fab fa-fw fa-twitter"></i>
           </a>
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
+          <a target="_blank" class="btn btn-outline-light btn-social mx-1" href="<?php the_field('linkedin'); ?>">
             <i class="fab fa-fw fa-linkedin-in"></i>
           </a>
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
-            <i class="fab fa-fw fa-dribbble"></i>
+          <a target="_blank" class="btn btn-outline-light btn-social mx-1" href="<?php get_field('behance'); ?>">
+            <i class="fab fa-fw fa-behance"></i>
           </a>
         </div>
 
         <!-- Footer About Text -->
         <div class="col-lg-4">
-          <h4 class="text-uppercase mb-4">About Freelancer</h4>
-          <p class="lead mb-0">Freelance is a free to use, MIT licensed Bootstrap theme created by
-            <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+          <h4 class="text-uppercase mb-4">See My Projects</h4>
+          <p class="lead mb-0">You can see my projects and clients' feedback by visiting this link
+            <a target="_blank" href="<?php the_field('hiring_profile'); ?>">Upwork Profile</a>.</p>
         </div>
 
+        <?php }
+          wp_reset_postdata();
+        ?>
       </div>
     </div>
   </footer>
