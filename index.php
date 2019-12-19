@@ -349,7 +349,7 @@
   <!-- Copyright Section -->
   <section class="copyright py-4 text-center text-white">
     <div class="container">
-      <small>Copyright &copy; Your Website 2019</small>
+      <small> <?php $startYear = 2019; if (date('Y') == $startYear) echo 'Copyright - &copy;' . date('Y'); else echo 'Copyright - &copy; ' . $startYear .  ' - ' . date('Y'); ?></small>
     </div>
   </section>
 

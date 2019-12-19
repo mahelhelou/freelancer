@@ -9721,6 +9721,8 @@ a.text-dark:hover, a.text-dark:focus {
   object-fit: cover;
   -o-object-position: top center;
   object-position: top center;
+  border: 10px solid #fff;
+  box-shadow: 10px 5px 8px rgba(1, 3, 5, 0.5);
 }
 
 @media (min-width: 992px) {
