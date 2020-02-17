@@ -28,6 +28,7 @@ function freelancer_assets() {
 
 add_action('wp_enqueue_scripts', 'freelancer_assets');
 
+// Custom Post Types
 function freelancer_post_types() {
    // Profile Post Type
    register_post_type('profile', array(
