@@ -55,7 +55,7 @@
         );
 
         $profile = new WP_Query($args);
-        
+
         while ($profile->have_posts()) {
           $profile->the_post(); ?>
 
@@ -76,7 +76,7 @@
           </div>
 
           <!-- Masthead Subheading -->
-          <p class="masthead-subheading font-weight-bold mb-0"> 
+          <p class="masthead-subheading font-weight-bold mb-0">
             <?php echo get_field('skill_1') . ' - ' . get_field('skill_2') . ' - ' . get_field('skill_3'); ?>
           </p>
         <?php }
