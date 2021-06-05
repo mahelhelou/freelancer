@@ -80,7 +80,7 @@
               <i class="fas fa-plus fa-3x"></i>
             </div>
           </div>
-          <img class="img-fluid" src="<?php echo get_field('portfolio_image')['url']; ?>" alt="">
+          <img class="img-fluid" src="<?php echo get_field('portfolio_image')['url']; ?>">
         </div>
       </div>
 

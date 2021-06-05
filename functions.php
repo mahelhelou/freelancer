@@ -28,6 +28,17 @@ function freelancer_assets() {
 
 add_action('wp_enqueue_scripts', 'freelancer_assets');
 
+// Theme supports
+function freelancer_features() {
+   // Post thumbnail (Featured image)
+   add_theme_support('post-thumbnails');
+
+   // Post formats
+   add_theme_support( 'post-formats', [ 'image', 'video' ] );
+}
+
+add_action('after_setup_theme', 'freelancer_features');
+
 // Custom Post Types
 function freelancer_post_types() {
    // Profile Post Type
@@ -45,7 +56,7 @@ function freelancer_post_types() {
 
   // Portfolio Post Type
   register_post_type('portfolio', array(
-   'supports' => array('title', 'editor', 'excerpt'),
+   'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'post-formats'),
    // 'rewrite' => array('slug' => 'portfolio'),
    'has_archive' => true,
    'public' => true,
@@ -88,8 +99,17 @@ function freelancer_post_types() {
 
 add_action('init', 'freelancer_post_types');
 
-// Theme supports
-function freelancer_supports() {
-   // Featured image
-   // add_theme_support('post_thumbnails');
+// Adding video support (Featured video thumbnail)
+function custom_upload_mimes ( $existing_mimes = array() ) {
+
+$existing_mimes['.mp4'] = 'video/mp4';
+$existing_mimes['mp4'] = 'video/mp4';
+
+// Add docx (msword) file type support
+// $existing_mimes['doc'] = 'application/msword';
+
+return $existing_mimes;
+
 }
+
+add_filter('mime_types', 'custom_upload_mimes');
